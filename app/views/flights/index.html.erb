@@ -1,0 +1,27 @@
+<%= form_with url: '/flights', method: :get do |f| %>
+  <%= f.collection_select :departure_id, Airport.order('city'), :id, :city, prompt: 'From' %>
+  <%= f.collection_select :arrival_id, Airport.order('city'), :id, :city, prompt: 'To'%>
+  <%= f.collection_select :no_passengers, [1, 2, 3, 4], :to_s, :to_s, prompt: 'no. passengers' %>
+  <%= f.select :year, Date.tomorrow.year..30.days.from_now.year, prompt: 'Year' %>
+  <%= f.select :month, Date.tomorrow.month..30.days.from_now.month, prompt: 'Month' %>
+  <%= f.select :day, 1..31, prompt: 'Day' %>
+  <%= f.submit 'Search'%>
+<% end %>
+<% if @available_tickets %>
+  <%= form_with url: '/bookings/new', method: :get do |f| %>
+    <% @available_tickets.each do |ticket| %>
+      <label class='ticket'>
+        <%= f.radio_button 'flight', ticket.id, checked: true %>
+        <h4>
+          <%= ticket.departure_airport.city %>
+          <%= ticket.arrival_airport.city %>
+        </h4>
+        <p>
+          Duration <%= ticket.duration_minutes/60 %>h  <%= ticket.duration_minutes%60 %>min<br>
+          Departure <%= (ticket.departure_datetime + @time_offset.days).strftime("%m/%d %H:%M") %>
+        </p>
+      </label>
+    <% end %>
+    <%= f.submit "Continue booking" %>
+  <% end %>
+<% end %>
