@@ -22,6 +22,7 @@
         </p>
       </label>
     <% end %>
+    <%= f.hidden_field :no_passengers, value: params[:no_passengers] %>
     <%= f.submit "Continue booking" %>
   <% end %>
 <% end %>

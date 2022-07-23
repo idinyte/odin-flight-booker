@@ -1,0 +1,9 @@
+<h2>Booking information for flight #<%= @booking.flight.id %></h2>
+<p>Departure <%= @booking.flight.departure_airport.city %><br>
+Arrival <%= @booking.flight.arrival_airport.city %><br>
+Date <%= (@booking.flight.departure_datetime + @time_offset.days).strftime("%Y %b %e %H:%M") %></p>
+<% @booking.passengers.each_with_index do |passenger, ind| %>
+  <h3>Passenger <%= ind+1 %>:<br></h3>
+  <%= passenger.name %><br>
+  <%= passenger.email %><br>
+<% end %>
