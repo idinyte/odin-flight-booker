@@ -1,0 +1,5 @@
+<div class="ticket_information px-4">
+  <h2><%= @flight.departure_airport.city %> - <%= @flight.arrival_airport.city %></h2>
+  <p>Flight #<%= @flight.id %></p>
+  <p><%= (@flight.departure_datetime + @time_offset.days).strftime("%Y %b %e %H:%M") %></p>
+</div>

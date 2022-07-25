@@ -1,0 +1,20 @@
+<% flash.clear %>
+<%= form_with url: '/bookings/new', method: :get do |f| %>
+  <% @available_tickets.each do |ticket| %>
+    <label class='ticket'>
+      <%= f.radio_button 'flight', ticket.id, checked: true %>
+      <div class="ticket_information">
+        <h4>
+          <%= ticket.departure_airport.city %>
+          <%= ticket.arrival_airport.city %>
+        </h4>
+        <p>
+          Duration <%= ticket.duration_minutes/60 %>h  <%= ticket.duration_minutes%60 %>min<br>
+          Departure <%= (ticket.departure_datetime + @time_offset.days).strftime("%m/%d %H:%M") %>
+        </p>
+      </div>
+    </label>
+  <% end %>
+  <%= f.hidden_field :no_passengers, value: params[:no_passengers] %>
+  <%= f.submit "Continue booking", class: 'btn mt-4' %>
+<% end %>

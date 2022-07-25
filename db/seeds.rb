@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-#Airport.create([{city: "CPH"}, {city: "CDG"}, {city: "ATH"}, {city: "BCN"}, {city: "BER"}, {city: "AMS"}, {city: "LCY"}, {city: "ARN"}])
+Airport.create([{city: "CPH"}, {city: "CDG"}, {city: "ATH"}, {city: "BCN"}, {city: "BER"}, {city: "AMS"}, {city: "LCY"}, {city: "ARN"}])
 durations = Array.new(56) { rand(110..280) }
 60.times{
   Flight.create([

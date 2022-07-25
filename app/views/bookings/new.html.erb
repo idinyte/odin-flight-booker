@@ -1,17 +1,4 @@
-<article>
-  <h2><%= @flight.departure_airport.city %> - <%= @flight.arrival_airport.city %></h2>
-  <p>Flight #<%= @flight.id %></p>
-  <p><%= (@flight.departure_datetime + @time_offset.days).strftime("%Y %b %e %H:%M") %></p>
-</article>
-<%= form_with model: @booking do |f| %>
-  <% index = 1 %>
-  <%= f.fields_for :passengers do |passenger| %>
-    <h4>Passenger <%= index %></h4>
-    <%= passenger.text_field :name, placeholder: 'Name', required: true %><br>
-    <%= passenger.email_field :email, placeholder: 'Email', required: true %><br>
-    <% index += 1 %>
-  <% end %>
-  <br>
-  <%= f.hidden_field :flight_id, value: params[:flight] %>
-  <%= f.submit "continue" %>
-<% end %>
+<div class="center w-full">
+  <%= render 'ticket_information' %>
+  <%= render 'passenger_form' %>
+</div>

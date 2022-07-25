@@ -1,0 +1,15 @@
+<%= form_with model: @booking, class: 'center' do |f| %>
+  <% index = 1 %>
+  <div class="passenger">
+    <%= f.fields_for :passengers do |passenger| %>
+      <div>
+        <h4>Passenger <%= index %></h4>
+        <%= passenger.text_field :name, placeholder: 'Name', required: true %><br>
+        <%= passenger.email_field :email, placeholder: 'Email', required: true %><br>
+        <% index += 1 %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.hidden_field :flight_id, value: params[:flight] %>
+  <%= f.submit "continue", class: 'btn' %>
+<% end %>

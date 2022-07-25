@@ -13,3 +13,184 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700;900&display=swap');
+
+ *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+ }
+
+ :root{
+  --green: #B5D99C;
+  --white: #F5F7DC;
+  --purple:#0F0326;
+  --pink: #E65F5C;
+  --yellow: #FFFF82;
+  background-color: var(--purple);
+  background: linear-gradient(var(--purple), var(--purple) 50%, #0d0225);
+ }
+ #search_form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+#search_form>div:first-child{
+width: 50%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-right: 1rem;
+}
+
+select{
+  margin-right: 1rem;
+  padding: 0.25rem;
+  font-weight: 600;
+  background-color: var(--pink);
+  color: var(--white);
+  border: 1px solid transparent;
+}
+select:hover{
+  cursor: pointer;
+}
+select:focus{
+  border: 1px solid var(--white);
+}
+input[type=radio]{
+  position: fixed;
+  opacity: 0;
+}
+input[type=radio]:focus + div{
+  background-color: var(--pink);
+}
+input[type=radio]:hover + div{
+  background-color: var(--pink);
+  cursor: pointer;
+}
+input[type=text], input[type=email]{
+  padding: .25rem;
+  border: 2px solid transparent;
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+input[type=text]:focus, input[type=email]:focus{
+  outline: 2px solid var(--pink);
+}
+.ticket_information{
+  color: var(--white);
+  padding: .5rem;
+  border: 2px solid var(--pink);
+  margin-top: 1rem;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.w-full{
+  height: 94vh;
+}
+
+.w-auto{
+  height: auto;
+}
+.title{
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--white);
+  transform: translate(0,-4rem);
+}
+.passenger{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.passenger>div{
+  margin: 2rem;
+}
+.passenger>div>h4{
+  margin-bottom: 1rem;
+}
+.mt-4{
+  margin-top: 1rem;
+}
+.p-4{
+  padding: 1rem;
+}
+.px-4{
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.mt-quarter{
+  margin-top: 12.5%;
+}
+
+.btn{
+  padding: 0.25rem 2rem 0.25rem 2rem;
+  background-color: transparent;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.btn:hover{
+  background-color: var(--yellow);
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.flash{
+  color: white;
+  width: 100vw;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  z-index: 5;
+  padding: var(--padding_0);
+  animation-name: disapear;
+  animation-duration: 4000ms;
+  animation-fill-mode: forwards;
+}
+
+.notice, .alert{
+  background-color: var(--yellow);
+  color: var(--purple);
+  padding: 0.5rem;
+}
+
+.border-left{
+  border-left: 4px solid var(--yellow);
+}
+
+@keyframes disapear{
+  75%{
+    transform: translateY(0);
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    display: none;
+    opacity: 0;
+    transform: translateY(-2.5rem);
+  }
+}
+
+#github{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  width: 100vw;
+  margin-top: 2rem;
+}
+#github:hover{
+  color: var(--pink);
+}
