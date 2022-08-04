@@ -1,0 +1,6 @@
+Confirmation for flight <%= @booking.flight.id %>
+
+You, you have successfully booked a flight <%= @booking.flight.departure_airport.city %> - <%= @booking.flight.arrival_airport.city %>.<br>
+<%= link_to 'Visit for full information', booking_url(@booking) %>
+
+Have a great day!

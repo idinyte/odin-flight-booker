@@ -1,8 +1,9 @@
 <div class="center w-full">
   <h2 class='title'>Booking information for flight #<%= @booking.flight.id %></h2>
-  <p class='ticket_information'>Departure <b><%= @booking.flight.departure_airport.city %></b><br>
-    Arrival <b><%= @booking.flight.arrival_airport.city %></b><br>
-    Date <b><%= (@booking.flight.departure_datetime + @time_offset.days).strftime("%Y %b %e %H:%M") %></b></p>
+  <p class='ticket_information'>Departure airport <b><%= @booking.flight.departure_airport.city %></b><br>
+    Arrival airport <b><%= @booking.flight.arrival_airport.city %></b><br>
+    Duration <b><%= @booking.flight.duration_minutes/60 %>h  <%= @booking.flight.duration_minutes%60 %>min</b><br>
+    Departure date <b><%= (@booking.flight.departure_datetime + @time_offset.days).strftime("%Y %b %e %H:%M") %></b></p>
   <div class="passenger">
     <% @booking.passengers.each_with_index do |passenger, ind| %>
       <div class='border-left p-4'>
@@ -13,4 +14,5 @@
       </div>
     <% end %>
   </div>
+<%= link_to 'Book more flights', root_path, class: 'btn' %>
 </div>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for flight <%= @booking.flight.id %></h1>
+    <p>
+      You, you have successfully booked a flight <%= @booking.flight.departure_airport.city %> - <%= @booking.flight.arrival_airport.city %>.<br>
+      <%= link_to 'Visit for full information', booking_url(@booking) %>
+    </p><br>
+    <p>Have a great day!</p>
+  </body>
+</html>
