@@ -93,7 +93,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'odin-air.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'simple-flight-booker.herokuapp.com'}
 
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['USERNAME'], # This is the string literal 'apikey', NOT the ID of your API key
